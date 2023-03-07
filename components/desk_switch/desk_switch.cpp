@@ -15,9 +15,9 @@ namespace esphome
             if (this->state && time - last_send > 250)
             {
                 if (this->direction)
-                    uart_device->write_array({0xea, 0xf5, 0x11, 0x00, 0x00, 0x11, 0xc5, 0x14});
+                    uart_device->write_array({0xD8, 0xD8, 0x66, 0x02, 0x02});
                 else
-                    uart_device->write_array({0xea, 0xf5, 0x33, 0x00, 0x00, 0x33, 0x4f, 0x75});
+                    uart_device->write_array({0xD8, 0xD8, 0x66, 0x01, 0x01});
                 uart_device->flush();
                 last_send = millis();
             }
@@ -33,7 +33,7 @@ namespace esphome
             if (!state)
             {
                 // Send a Idle command to cancle the execution of the current desk movement.
-                uart_device->write_array({0xea, 0xf5, 0x22, 0x00, 0x00, 0x22, 0x8a, 0x45});
+                uart_device->write_array({0xD8, 0xD8, 0x66, 0x01, 0x00});
                 uart_device->flush();
             }
         }
