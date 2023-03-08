@@ -30,7 +30,7 @@ generic_desk:
   id: desk1
   uart_id: uart_bus
   # The Desks height measured in the lowest position
-  base_height: 66.4
+  base_height: 74.7
   #Optional correction factor, in case the height does not scale properly
   correction_term: 1.24836
 
