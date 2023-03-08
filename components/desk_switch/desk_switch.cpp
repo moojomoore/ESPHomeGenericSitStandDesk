@@ -15,9 +15,9 @@ namespace esphome
             if (this->state && time - last_send > 250)
             {
                 if (this->direction)
-                    uart_device->write_array({0xD8, 0xD8, 0x66, 0x02, 0x02});
+                    uart_device->write_array({0xD8, 0xD8, 0x66, 0x02, 0x02, 0xD8, 0xD8, 0x66, 0x02, 0x02});
                 else
-                    uart_device->write_array({0xD8, 0xD8, 0x66, 0x01, 0x01});
+                    uart_device->write_array({0xD8, 0xD8, 0x66, 0x01, 0x01, 0xD8, 0xD8, 0x66, 0x02, 0x01});
                 uart_device->flush();
                 last_send = millis();
             }
