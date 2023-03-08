@@ -4,7 +4,7 @@ esphome:
   board: esp01_1m
 
 external_components:
-  - source: github://TillFleisch/ESPHomeGenericSitStandDesk@main
+  - source: github://moojomoore/ESPHomeGenericSitStandDesk@main
 
 # Enable logging
 logger:
@@ -14,24 +14,17 @@ uart:
   id: uart_bus
   tx_pin: TX
   rx_pin: RX
-  baud_rate: 57600
+  baud_rate: 9600
 
 # Enable Home Assistant API
 api:
 
 ota:
-  password: "HaHaGetRickRolled"
+  password: !secret esphome_secret
 
 wifi:
-  ssid: !secret WiFi_Name
-  password: !secret WiFi_Password
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Desk Fallback Hotspot"
-    password: "dQw4w9WgXcQ"
-
-captive_portal:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
 
 generic_desk:
   id: desk1
